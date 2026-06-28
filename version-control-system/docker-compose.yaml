@@ -36,8 +36,8 @@ services:
       bash -c '
       /usr/bin/s6-svscan /etc/s6 &
       sleep 10 ;
-      su -c "forgejo forgejo-cli actions register --keep-labels --secret {SHARED_SECRET}" git ;
-      su -c "forgejo admin user create --admin --username root --password {ROOT_PASSWORD} --email mail@example.com" git ;
+      su -c "forgejo forgejo-cli actions register --keep-labels --secret 52f9626ae361127e3b191220aac46e33eea8c5da" git ;
+      su -c "forgejo admin user create --admin --username root --password 4d9db9fa0b2ca1deed4ef4d74d57161a69fd279c --email mail@example.com" git ;
       sleep infinity
       '
     depends_on:
@@ -79,7 +79,7 @@ services:
       sed -i -e "s|^  envs:$$|  envs:\n    DOCKER_HOST: tcp://docker:2376\n    DOCKER_TLS_VERIFY: 1\n    DOCKER_CERT_PATH: /certs/client|" config.yml ;
       sed -i -e "s|^  options:|  options: -v /certs/client:/certs/client|" config.yml ;
       sed -i -e "s|  valid_volumes: \[\]$$|  valid_volumes:\n    - /certs/client|" config.yml ;
-      sed -i -e "s|  connections:|  connections:\n    default:\n      url: http://forgejo:3000\n      uuid: {UUID}\n      token: {SHARED_SECRET}|" config.yml ;
+      sed -i -e "s|  connections:|  connections:\n    default:\n      url: http://forgejo:3000\n      uuid: 35326639-3632-3661-6533-363131323765\n      token: 52f9626ae361127e3b191220aac46e33eea8c5da|" config.yml ;
       chown -R 1000:1000 /data
       '
 

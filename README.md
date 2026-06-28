@@ -15,7 +15,7 @@ Create a repo in forgejo and create a sample deployment file for an application.
 mkdir -p deploy
 touch deploy/deployment.yaml
 ```
-Copy the contents of [deployment.yaml](./deploy/deployment.yaml) and add it to the `deploy/deployment.yaml` file in your repo.
+Copy the contents of [deployment.yaml](./test-app/deploy/deployment.yaml) and add it to the `deploy/deployment.yaml` file in your repo.
 
 Commit and push the changes to repo
 
