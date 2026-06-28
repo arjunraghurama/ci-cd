@@ -3,6 +3,13 @@ volumes:
 
 services:
 
+  # nginx:
+  #   build: ./nginx
+  #   ports:
+  #     - "443:443"
+  #   depends_on:
+  #     - forgejo
+
   docker-in-docker:
     image: data.forgejo.org/oci/docker:dind
     hostname: docker  # Must set hostname as TLS certificates are only valid for docker or localhost
@@ -50,6 +57,7 @@ services:
       - ./forgejo-data:/data
     ports:
       - 8080:3000
+      - 2222:22
 
   runner-register:
     image: data.forgejo.org/forgejo/runner:12.10.2
